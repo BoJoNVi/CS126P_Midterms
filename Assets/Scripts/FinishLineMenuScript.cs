@@ -6,20 +6,27 @@ using UnityEngine.SceneManagement;
 
 public class FinishLineMenuScript : MonoBehaviour
 {
+    // Reference Objects
     public Button playAgainBtn, quitBtn;
     public Text placingText;
 
+    // Assigning to a function
     void Start(){
         playAgainBtn.onClick.AddListener(playAgain);
         quitBtn.onClick.AddListener(quit);
     }
 
+    // Load the game scene
     public void playAgain(){
         SceneManager.LoadScene(1);
     }
+
+    // Quit the game
     public void quit(){
         Application.Quit();
     }
+
+    // Display the correct placement when finishing the race
     public void placement(){
         if (PlayerScript.place == 1){
             placingText.text = PlayerScript.place.ToString() + "ST PLACE";
